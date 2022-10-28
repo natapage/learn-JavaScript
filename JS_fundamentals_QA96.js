@@ -203,3 +203,46 @@ ask(
 
 
 ask("Вы согласны?", () => alert("Вы согласились.", () => alert("Вы отменили выполнение.");
+
+
+///////////////// метод Number.isNaN() и функция isNaN() ///////////////
+
+// В отличие от глобальной функции isNaN(), Number.isNaN() не имеет проблемы принудительного преобразования параметра в число. 
+// Это значит, что в него безопасно передавать значения, которые обычно превращаются в NaN, но на самом деле NaN не являются. 
+// Также это значит, что метод возвращает true только для числовых значений, имеющих значение NaN.
+
+
+Number.isNaN(NaN); // true
+Number.isNaN(Number.NaN); // true
+Number.isNaN(0 / 0) // true
+
+// При использовании глобальной функции isNaN() это всё будет true
+Number.isNaN('NaN');      // false
+Number.isNaN(undefined);  // false
+Number.isNaN({});         // false
+Number.isNaN('blabla');   // false
+
+// А это всё в любом случае будет false
+Number.isNaN(true);
+Number.isNaN(null);
+Number.isNaN(37);
+Number.isNaN('37');
+Number.isNaN('37.37');
+Number.isNaN('');
+Number.isNaN(' ');
+
+/////////////////////////////////Метод Number.isFinite() и функция isFinite()/////////////////////////////
+
+// Метод Number.isFinite() определяет, является ли переданное значение конечным числом.
+// В отличии от глобальной функции isFinite(), этот метод принудительно не преобразует параметр в число. 
+// Это означает, что он возвращает true только для конечных значений числового типа.
+
+Number.isFinite(Infinity);  // false
+Number.isFinite(NaN);       // false
+Number.isFinite(-Infinity); // false
+
+Number.isFinite(0);         // true
+Number.isFinite(2e64);      // true
+
+Number.isFinite('0');       // false, при использовании глобальной
+                            // функции isFinite('0') было бы true
