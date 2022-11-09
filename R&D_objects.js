@@ -1,7 +1,5 @@
-// Что такое this?
-// Как "потерять" this?
-// Чему равен this внутри функции-стрелки?
-// Как сделать, чтобы объект был равен определенному числу? был равен определенной строке?
+
+// this
 
 function makeUser() {
   return {
@@ -12,7 +10,7 @@ function makeUser() {
 
 let user = makeUser();
 
-console.log(user.ref.name); // Каким будет результат?
+console.log(user.ref.name); // Каким будет результат? 
 
 // верный вариант:
 
