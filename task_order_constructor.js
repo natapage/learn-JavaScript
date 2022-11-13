@@ -24,7 +24,12 @@ function Order() {
   this.isLocked = false;
 
   this.addItem = function (item, count) {
-    //проверяем, заблочен ли заказ
+    //если count не задан, то считаем что он 1
+    if (!count) {
+      count = 1;
+
+      //проверяем, заблочен ли заказ
+    }
     if (this.isLocked) {
       throw Error("Order is locked");
     }
@@ -36,7 +41,7 @@ function Order() {
     }
 
     //прибавляем если ли уже такой товар в чеке, обновляем количество товара
-    const qty = this.check[name]?.qty ?? 0 + count;
+    const qty = (this.check[name]?.qty ?? 0) + count;
     this.check[name] = { price, qty };
   };
 
@@ -92,6 +97,7 @@ function Order() {
 }
 
 const order = new Order();
+const order2 = new Order();
 const beer = {
   name: "beer",
   price: 10,
@@ -112,3 +118,8 @@ order.removeItem(beer, 7);
 console.log(order.getCheck());
 order.removeItem(milk);
 console.log(order.getCheck());
+
+order2.addItem(milk, 2);
+order2.addItem(milk, 2);
+order2.addItem(milk, 2);
+console.log(order2.getCheck());
