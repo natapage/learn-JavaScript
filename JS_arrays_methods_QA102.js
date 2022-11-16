@@ -46,7 +46,7 @@ arr.push(function () {
   alert(this);
 });
 
-arr[2](); // ?   положили в конце массива функцию и вызываем ее по индексу массива. arr тут в роли объекта, то есть мы вызываем метод объекта
+arr[2](); // a,b,function(){...}   положили в конце массива функцию и вызываем ее по индексу массива. arr тут в роли объекта, то есть мы вызываем метод объекта
 
 // _______________________________________________________________________________________________________________________
 
@@ -145,10 +145,10 @@ function filterRange(arr, a, b) {
 
 let arr = [5, 3, 8, 1];
 
-filterRangeInPlace(arr, a, b) {
-  for (let i = 0; i <= arr.length; i++) {
-    let var = arr[i];
-    if (item >= a && item <= b) {
+function filterRangeInPlace(arr, a, b) {
+  for (let i = 0; i < arr.length; i++) {
+    let val = arr[i];
+    if (val >= a && val <= b) {
       arr.splice( i, 1 );
       i--;
     };
