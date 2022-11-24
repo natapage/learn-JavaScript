@@ -103,4 +103,3 @@ function moveZeros(arr) {
   const arrNotZero = arr.filter(element => element !== 0);
   const arrZero = Array(arr.length - arrNotZero.length).fill(0);
   return arrNotZero.concat(arrZero)
-}
