@@ -29,12 +29,12 @@ for (let item of obj) {
   console.log(item);
 }
 
+// _______________________________________________________________________________________________________________________
+
 let range = {
   from: 1,
   to: 5,
 };
-
-// _____________________________________________________________________________________________________________
 
 range[Symbol.iterator] = function () {
   return {
@@ -49,6 +49,10 @@ range[Symbol.iterator] = function () {
     },
   };
 };
+
+for (let item of range) {
+  console.log(item);
+}
 
 // _____________________________________________________________________________________________________________
 
@@ -110,19 +114,16 @@ alert(unique(values)); // Hare,Krishna,:-O
 let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
 function aclean(arr) {
-  let arrNew = arr.map((item) => item.toLowerCase().split("").sort().join(""));
+  const arrNew = arr.map((item) =>
+    item.toLowerCase().split("").sort().join("")
+  );
   let n = 0;
   let mapFromArr = new Map();
-  let result = [];
   while (n < arr.length) {
     mapFromArr.set(arrNew[n], arr[n]);
     n++;
   }
-  let setFromArr = new Set(arrNew);
-  for (let word of setFromArr) {
-    result.push(mapFromArr.get(word));
-  }
-  return result;
+  return Array.from(new Set(mapFromArr.values()));
 }
 
 //  или
