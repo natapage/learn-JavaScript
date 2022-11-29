@@ -6,7 +6,7 @@ let obj = {
   city: "Moscow",
   [Symbol.iterator]: function () {
     return {
-      arrValues: Object.values(this),
+      arrValues: Object.values(this), // получаем массив знечений свойств объекта
       index: 0,
 
       next() {
