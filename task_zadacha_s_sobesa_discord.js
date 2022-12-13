@@ -21,9 +21,7 @@ function getCopy(arr, a) {
   }
   if (a >= 2) {
     for (let i = 0; i < a; i++) {
-      for (let item of arr) {
-        arrNew.push(item);
-      }
+      arrNew = arrNew.concat(arr);
     }
   }
   return arrNew;
