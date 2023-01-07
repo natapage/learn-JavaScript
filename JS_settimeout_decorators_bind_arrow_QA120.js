@@ -20,11 +20,11 @@ function printNumbers(from, to) {
 
 function printNumbers2(from, to) {
   let intervalId = setInterval(function show() {
-    alert(from);
-    from++;
-    if (from > to) {
+    if (from === to) {
       clearInterval(intervalId);
     }
+    alert(from);
+    from++;
   }, 1000);
 }
 
@@ -49,6 +49,8 @@ setTimeout(() => alert(i), 100); // ?
 for (let j = 0; j < 100000000; j++) {
   i++;
 }
+
+// Любой вызов setTimeout будет выполнен только после того, как текущий код завершится.
 
 ///////////////////////////////////// call-apply-decorators ///////////////////////////////////////
 
