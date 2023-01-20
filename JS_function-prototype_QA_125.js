@@ -47,7 +47,7 @@ Rabbit.prototype = {
 
 let rabbit = new Rabbit();
 
-delete rabbit.eats;
+delete rabbit.eats; // тут ничего не удаляется, так как в rabbit нет cвоего eats
 
 alert(rabbit.eats); // ? true
 // Или, наконец, такой:
