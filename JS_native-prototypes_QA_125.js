@@ -43,7 +43,7 @@ console.log('2: ', ITkam.prototype === ITkam.__proto__); // false
 
 function ITcub() {}
 console.log('3  ', ITcub.__proto__ === ITkam.__proto__); // true
-console.log('4 ', ITcub.prototype === ITkam.prototype); // true  false
+console.log('4 ', ITcub.prototype === ITkam.prototype); //   false
 
 let Component = (props) => {
   return `<div> I dont't know Prototype</div>`;
