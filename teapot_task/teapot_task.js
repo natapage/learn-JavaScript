@@ -116,31 +116,31 @@ class Teapot {
 
 const teapot = new Teapot();
 
-// попробуем вскипятить без приключений
-console.log(teapot.plugIn());
-console.log(teapot.addWater(500));
-console.log(teapot.turnOn());
+// // попробуем вскипятить без приключений
+// console.log(teapot.plugIn());
+// console.log(teapot.addWater(500));
+// console.log(teapot.turnOn());
 
-// попробуем вскипятить выключенный из сети чайник
-console.log(teapot.addWater(500));
-console.log(teapot.turnOn());
+// // попробуем вскипятить выключенный из сети чайник
+// console.log(teapot.addWater(500));
+// console.log(teapot.turnOn());
 
-// попробуем выключить чайник в процессе кипячения
-console.log(teapot.plugIn());
-console.log(teapot.addWater(500));
-console.log(teapot.turnOn());
-setTimeout(() => teapot.turnOff(), 1000);
+// // попробуем выключить чайник в процессе кипячения
+// console.log(teapot.plugIn());
+// console.log(teapot.addWater(500));
+// console.log(teapot.turnOn());
+// setTimeout(() => teapot.turnOff(), 1000);
 
-// попробуем налить 2 л в чайник объемом 1.5 литра
-console.log(teapot.addWater(2000));
+// // попробуем налить 2 л в чайник объемом 1.5 литра
+// console.log(teapot.addWater(2000));
 
-//попробуем включить включенный чайник (просто продолжается кипечение + уведомление)
-console.log(teapot.plugIn());
-console.log(teapot.addWater(500));
-console.log(teapot.turnOn());
-console.log(teapot.turnOn());
+// //попробуем включить включенный чайник (просто продолжается кипечение + уведомление)
+// console.log(teapot.plugIn());
+// console.log(teapot.addWater(500));
+// console.log(teapot.turnOn());
+// console.log(teapot.turnOn());
 
-// попробуем убавить воды больше чем есть в чайнике ()
-console.log(teapot.addWater(500));
-console.log(teapot.removeWater(600));
-console.log(teapot.waterAmount);
+// // попробуем убавить воды больше чем есть в чайнике ()
+// console.log(teapot.addWater(500));
+// console.log(teapot.removeWater(600));
+// console.log(teapot.waterAmount);
