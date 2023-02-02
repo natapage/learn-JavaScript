@@ -68,16 +68,13 @@ class Teapot {
   }
 
   addWater(ml) {
-    if (typeof ml === "number" && ml > 0) {
-      // проверка на допустимое количество воды
+    if (typeof ml === "number") {
+      if (ml <= 0) throw new Error("Количество воды должно быть больше 0");
       this.waterAmount += ml;
 
-      if (!this.isOkWaterAmount) {
-        if (this.waterAmount > 1500) {
-          this.waterAmount = 1500;
-          console.log("Остальное придётся вытереть");
-        }
-        if (this.waterAmount === 0) throw new Error("Добавьте в чайник воду");
+      if (this.waterAmount > 1500) {
+        this.waterAmount = 1500;
+        console.log("Влезло только 1.5 литра, остальное придётся вытереть");
       }
     }
   }
