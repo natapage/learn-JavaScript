@@ -15,11 +15,10 @@
 class Teapot {
   #isPlugged = false;
   #isOn = false;
-
-  constructor() {
-    this.waterAmount = 0;
-    this.temperature = 25;
-  }
+  #roomTemp = 23;
+  #teapotVolume = 1500;
+  waterTemp = 23;
+  waterAmount = 0;
 
   turnOn() {
     // попытка включить выключенный из сети чайник
@@ -48,6 +47,11 @@ class Teapot {
       throw new Error("Чайник уже выключён из сети");
     }
     this.#isOn = false;
+
+    // остывание, если чайник был теплый
+    // if (this.waterTemp > this.#roomTemp) {
+    //   this.#coolingDown();
+    // }
   }
 
   plugIn() {
@@ -63,8 +67,14 @@ class Teapot {
     if (!this.#isPlugged) {
       throw new Error("Чайник уже выключён из сети");
     }
+
     this.#isPlugged = false;
     this.#isOn = false;
+
+    // остывание, если чайник был теплый
+    if (this.waterTemp > this.#roomTemp) {
+      this.#coolingDown();
+    }
   }
 
   addWater(ml) {
@@ -72,8 +82,8 @@ class Teapot {
       if (ml <= 0) throw new Error("Количество воды должно быть больше 0");
       this.waterAmount += ml;
 
-      if (this.waterAmount > 1500) {
-        this.waterAmount = 1500;
+      if (this.waterAmount > this.#teapotVolume) {
+        this.waterAmount = this.#teapotVolume;
         console.log("Влезло только 1.5 литра, остальное придётся вытереть");
       }
     }
@@ -88,7 +98,8 @@ class Teapot {
   }
 
   get isOkWaterAmount() {
-    if (this.waterAmount === 0 || this.waterAmount > 1500) return false;
+    if (this.waterAmount === 0 || this.waterAmount > this.#teapotVolume)
+      return false;
     return true;
   }
 
@@ -97,23 +108,39 @@ class Teapot {
       console.log("Ваш чайник не успел вскипеть");
       return;
     }
-    if (this.temperature === 100) {
-      console.log(this.temperature);
-      console.log("Ваш чайник вскипел");
+    if (this.waterTemp === 100) {
+      console.log(this.waterTemp);
+      console.log("Ваш чайник вскипел и начинает остывать");
       this.turnOff();
+      this.#coolingDown();
       return;
     }
     setTimeout(() => {
-      this.temperature++;
+      this.waterTemp++;
       this.#warmUp();
     }, 100);
-    console.log(this.temperature);
+    console.log(this.waterTemp);
+  }
+
+  #coolingDown() {
+    if (this.#isOn) {
+      return;
+    }
+    if (this.waterTemp <= this.#roomTemp) {
+      console.log("Ваш чайник остыл");
+      return;
+    }
+    setTimeout(() => {
+      this.waterTemp--;
+      this.#coolingDown();
+    }, 200);
+    console.log(this.waterTemp);
   }
 }
 
 const teapot = new Teapot();
 
-// // попробуем вскипятить без приключений
+// попробуем вскипятить без приключений
 // console.log(teapot.plugIn());
 // console.log(teapot.addWater(500));
 // console.log(teapot.turnOn());
@@ -141,3 +168,9 @@ const teapot = new Teapot();
 // console.log(teapot.addWater(500));
 // console.log(teapot.removeWater(600));
 // console.log(teapot.waterAmount);
+
+// //попробуем вскипятить неостывший чайник
+// console.log(teapot.plugIn());
+// console.log(teapot.addWater(500));
+// console.log(teapot.turnOn());
+// setTimeout(() => teapot.turnOn(), 13000);
