@@ -64,7 +64,7 @@ Promise.all([
     for (let el of posts)
       if (item.id === el.id) {
         el.username = item.username;
-        el.countUserPost = users.length;
+        el.countUserPost = posts.length;
       }
   }
   console.log(posts);
