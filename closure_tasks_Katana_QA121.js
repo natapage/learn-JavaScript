@@ -1,9 +1,11 @@
-// 1
-(function immediateA(a) {
-  return (function immediateB(b) {
-    console.log(a);
-  })(1);
-})(0);
+git(
+  // 1
+  function immediateA(a) {
+    return (function immediateB(b) {
+      console.log(a);
+    })(1);
+  }
+)(0);
 
 // 0 так как замыканием может быть не только объявленные переменные во внешней функции, но и пришедшие аргументы
 
