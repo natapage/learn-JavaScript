@@ -1,4 +1,4 @@
-task_microtasks_promises.js;
+// task_microtasks_promises.js;
 const iCantGetRidOfPromise = () => {
   console.log(0);
   setTimeout(() => console.log(1), 50);
