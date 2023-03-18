@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      console.log(document.querySelector("body").innerText);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+// defer без src не работает (он ток для внешних скриптов) // а при
+type='module' скрипт неявно становится defer и выполняется после body
