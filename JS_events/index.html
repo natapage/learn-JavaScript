@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="script.js"></script>
+    <title>Document</title>
+    <link rel='stylesheet' href="styles.css"></link>
+  </head>
+  <body>
+    <button id="btn">Жми!</button>
+    <button id="btn2">Жми следующей!</button>
+    <div id="text">текст</div>
+    <button id="btn3">жми чтобы исчез текст</button>
+    <button id="btn4">жми чтобы исчезла кнопка</button>
+
+    <div id="football" style="height: 300px">
+      Нажмите на поле для перемещения мяча.
+      <br />
+      Мяч не должен выходить за границы поля.
+
+      <div id="field">
+        <img src="https://ru.js.cx/clipart/ball.svg" id="ball" /> . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . . . . . . . . . . . .
+      </div>
+    </div>
+
+    <div id="sweeties" class="menu">
+      <span class="title">Сладости (нажми меня)</span>
+      <ul>
+        <li>Пирожное</li>
+        <li>Пончик</li>
+        <li>Мёд</li>
+      </ul>
+    </div>
+
+    <div>
+      <input type="button" value="1" data-counter>
+      <input type="button" value="2" data-counter>
+    </div>
+
+    <button data-toggle-id="subscribe-mail">
+      Показать форму подписки
+    </button>
+    
+    <form id="subscribe-mail" hidden>
+      Ваша почта: <input type="email">
+    </form>
+  </body>
+</html>
