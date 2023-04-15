@@ -35,7 +35,7 @@ let elem = document.body.querySelector("[data-widget-name]");
 console.log(elem.dataset.widgetName);
 
 let elem2 = document.body.querySelector("id");
-
+// _________________________________________________________________________________________
 // Сделайте все внешние ссылки оранжевыми, изменяя их свойство style.
 
 // Ссылка является внешней, если:

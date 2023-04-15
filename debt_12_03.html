@@ -3,10 +3,9 @@
   <head>
     <script>
       console.log(document.querySelector("body").innerText);
+      // defer без src не работает (он ток для внешних скриптов) // а при
+      //type='module' скрипт неявно становится defer и выполняется после body
     </script>
   </head>
   <body></body>
 </html>
-
-// defer без src не работает (он ток для внешних скриптов) // а при
-type='module' скрипт неявно становится defer и выполняется после body

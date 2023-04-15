@@ -123,3 +123,10 @@ order2.addItem(milk, 2);
 order2.addItem(milk, 2);
 order2.addItem(milk, 2);
 console.log(order2.getCheck());
+
+
+this.addProduct = function(obj) {
+  // Check if the shopping cart is locked
+  if (this.isLocked) {
+    return;
+  }
